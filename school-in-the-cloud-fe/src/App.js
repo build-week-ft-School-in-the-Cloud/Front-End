@@ -7,19 +7,29 @@ const initData = {
   username: 'danb',
   forename: 'Dan',
   surname: 'Brioli',
-  country: 'USA'
+  country: 'United States of America'
 }
 
 function App() {
 
-  const [userData, setUserData] = useState(initData);
+  const [username, setUsername] = useState(initData.username);
+  const [forename, setForename] = useState(initData.forename);
+  const [surname, setSurname] = useState(initData.surname);
+  const [country, setCountry] = useState(initData.country);
 
   return (
 
     <div className="app-container">
-      <StudentDashboard username={userData.username} forename={userData.forename} surname={userData.surname} country={userData.country} setUserData={setUserData}/>
+      <StudentDashboard username={username} 
+                        forename={forename} 
+                        surname={surname} 
+                        country={country} 
+                        setUsername={setUsername}
+                        setForename={setForename}
+                        setSurname={setSurname}
+                        setCountry={setCountry}/>
     </div>
-    
+
   );
 
 }

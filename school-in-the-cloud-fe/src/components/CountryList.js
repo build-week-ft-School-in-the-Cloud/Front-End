@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import {v4 as uuid} from 'uuid';
-
-const countryList = ['USA','UK','Germany','South Africa','Mexico','Spain','Portugal'];
+import axios from 'axios';
 
 const CountryList = props => {
+
+    const [countryList, setCountryList] = useState([]);
 
     let selectedCountry = 'Select Your Country';
 
@@ -11,15 +11,35 @@ const CountryList = props => {
         selectedCountry = props.country;
     }
 
-    console.log(props.country);
-    console.log(selectedCountry);
+    const getCountries = () => {
+
+        axios.get('https://restcountries.eu/rest/v2/all')
+            .then(response => {
+                console.log(response);
+                let tempCountryList = [];
+                response.data.forEach(c => {
+                    tempCountryList.push(c.name);
+                });
+                tempCountryList.sort();
+                setCountryList(tempCountryList);
+                console.log(tempCountryList);
+            })
+            .catch(error => {
+                console.log(error);
+            })
+
+    }
+
+    useEffect(() => {
+        getCountries();
+    }, []);
 
     return (
-        <select name='country'> {/* Make this stuff reference CountryListItem */}
-            <option defaultValue={selectedCountry}>{selectedCountry}</option>
+        <select name='country'>
+            <option key={selectedCountry} defaultValue={selectedCountry}>{selectedCountry}</option>
             {countryList.map(c => {
                 if (c !== selectedCountry){
-                    return (<option>{c}</option>);
+                    return (<option key={c}>{c}</option>);
                 }
                 else {
                     return;

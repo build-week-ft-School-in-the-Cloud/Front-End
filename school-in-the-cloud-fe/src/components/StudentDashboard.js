@@ -19,7 +19,14 @@ const StudentDashboard = props => {
                         <p className='student-dashboard-country'>Country: {props.country}</p>
                     </Route>
                     <Route path='/edit'>
-                        <EditProfile username={props.username} forename={props.forename} surname={props.surname} country={props.country} setUserData={props.setUserData}/>
+                        <EditProfile username={props.username} 
+                                     forename={props.forename} 
+                                     surname={props.surname} 
+                                     country={props.country} 
+                                     setUsername={props.setUsername}
+                                     setForename={props.setForename}
+                                     setSurname={props.setSurname}
+                                     setCountry={props.setCountry}/>
                     </Route>
                 </Switch>
                 <Footer />
