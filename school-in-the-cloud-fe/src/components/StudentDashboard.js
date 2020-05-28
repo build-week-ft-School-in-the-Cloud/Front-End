@@ -4,7 +4,8 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import EditProfile from './EditProfile';
 
-// below will probably need routing, for now just get it up and running
+// studentDashboard gets its state from props and renders editProfile within it when
+// selected from Navbar by routing /edit path
 const StudentDashboard = props => {
 
     return (

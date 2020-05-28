@@ -1,5 +1,6 @@
 import React from 'react';
 
+// just a footer to display some text
 const Footer = props => {
 
     return (

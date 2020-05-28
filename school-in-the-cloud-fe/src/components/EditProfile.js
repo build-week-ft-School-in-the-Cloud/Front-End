@@ -3,6 +3,7 @@ import CountryList from './CountryList';
 import EditProfileSchema from './EditProfileSchema';
 import * as yup from 'yup';
 
+// init error messages with empty strings
 const initialErrors = {
     username: '',
     forename: '',
@@ -11,6 +12,10 @@ const initialErrors = {
 
 const EditProfile = props => {
 
+    // init state, errors are empty, form values are grabbed from login state,
+    // disabled is true initially but will likely be set to false since
+    // the form expects the values to be valid when passed to it and checks that
+    // in an effect hook a bit below
     const [errors, setErrors] = useState(initialErrors);
     const [values, setValues] = useState({username: props.username,
                                           forename: props.forename,
@@ -24,6 +29,7 @@ const EditProfile = props => {
         const name = event.target.name;
         const value = event.target.value;
 
+        // validation from yup schema
         yup.reach(EditProfileSchema, name)
            .validate(value)
            .then(valid => {
@@ -37,6 +43,8 @@ const EditProfile = props => {
 
     };
 
+    // when form submits, actually update the state. This could then be pushed
+    // to the server.
     const onSubmit = event => {
 
         event.preventDefault();
@@ -48,6 +56,7 @@ const EditProfile = props => {
 
     }
 
+    // effect hook to see if submit button should be enabled or not
     useEffect(() => {
 
         EditProfileSchema.isValid(values)
