@@ -6,35 +6,78 @@ import * as yup from 'yup';
 const initialErrors = {
     username: '',
     forename: '',
-    surname: '',
-    country: ''
+    surname: ''
 };
 
 const EditProfile = props => {
 
     const [errors, setErrors] = useState(initialErrors);
+    const [values, setValues] = useState({username: props.username,
+                                          forename: props.forename,
+                                          surname: props.surname,
+                                          country: props.country});
+    const [disabled, setDisabled] = useState(true);
 
+    // validate text field inputs
     const onInputChange = event => {
 
         const name = event.target.name;
         const value = event.target.value;
 
-        //finish validation here and updating state
+        yup.reach(EditProfileSchema, name)
+           .validate(value)
+           .then(valid => {
+                setErrors({...errors, [name]: ''});
+           })
+           .catch(error => {
+                setErrors({...errors, [name]: error.errors[0]});
+           });
+
+        setValues({...values, [name]: value});
 
     };
+
+    const onSubmit = event => {
+
+        event.preventDefault();
+
+        props.setUsername(values.username);
+        props.setForename(values.forename);
+        props.setSurname(values.surname);
+        props.setCountry(values.country);
+
+    }
+
+    useEffect(() => {
+
+        EditProfileSchema.isValid(values)
+            .then(valid => {
+                setDisabled(!valid);
+            });
+    
+    }, [values]);
 
     return (
 
         <div className='edit-profile-container'>
-            <p className='student-dashboard-edit-username'>Username: </p>
-            <input type='text' value={props.username} className='student-dashboard-edit-username-input' />
-            <p className='student-dashboard-edit-first-name'>First Name: </p>
-            <input type='text' value={props.forename} className='student-dashboard-edit-first-name-input' />
-            <p className='student-dashboard-edit-last-name'>Last Name: </p>
-            <input type='text' value={props.surname} className='student-dashboard-edit-last-name-input' />
-            <p className='student-dashboard-edit-country'>Country: </p>
-            <CountryList country={props.country} setCountry={props.setCountry}/>
-            <button className='student-dashboard-edit-submit'>Update Profile</button>
+            <form className='edit-profile-form' onSubmit={onSubmit}>
+                <div className='edit-profile-top'>
+                    <p className='edit-profile-username'>Username: </p>
+                    <input type='text' value={values.username} name='username' onChange={onInputChange} className='edit-profile-username-input' />
+                    <p className='edit-profile-first-name'>First Name: </p>
+                    <input type='text' value={values.forename} name='forename' onChange={onInputChange} className='edit-profile-first-name-input' />
+                    <p className='edit-profile-last-name'>Last Name: </p>
+                    <input type='text' value={values.surname} name='surname' onChange={onInputChange} className='edit-profile-last-name-input' />
+                    <p className='edit-profile-country'>Country: </p>
+                    <CountryList country={values.country} setValues={setValues} values={values}/>
+                </div>
+                <div className='edit-profile-bottom'>
+                    <button className='student-dashboard-edit-submit' disabled={disabled}>Update Profile</button>
+                    <p className='edit-profile-error-text'>{errors.username}</p>
+                    <p className='edit-profile-error-text'>{errors.forename}</p>
+                    <p className='edit-profile-error-text'>{errors.surname}</p>
+                </div>
+            </form>
         </div>
 
     )

@@ -10,7 +10,7 @@ const Navbar = props => {
             <nav className='navbar-nav'>
                 <Link to='/' className='navbar-nav-link'>Home</Link>
                 <Link to='/edit' className='navbar-nav-link'>Edit Profile</Link>
-                <a href='#' className='navbar-nav-link'>Log Out</a>
+                <a href='#' className='navbar-nav-link'>Log Out</a> {/* figure out where this goes to and make it a link */}
             </nav>
         </div>
 

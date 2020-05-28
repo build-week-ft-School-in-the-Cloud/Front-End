@@ -1,5 +1,7 @@
 import * as yup from 'yup';
 
+// Will be used to validate text inputs on EditProfile component
+
 const EditProfileSchema = yup.object().shape({
     username: yup.string()
         .trim()
@@ -12,7 +14,7 @@ const EditProfileSchema = yup.object().shape({
     surname: yup.string()
         .trim()
         .min(2, 'Last name must be at least 2 letters long.')
-        .required('You must enter your last name.'),
-    country: yup.string()
-        .required('Please select a country')
-})
+        .required('You must enter your last name.')
+});
+
+export default EditProfileSchema;

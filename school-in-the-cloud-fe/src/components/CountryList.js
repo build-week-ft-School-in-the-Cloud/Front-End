@@ -30,20 +30,24 @@ const CountryList = props => {
 
     }
 
+    const setCountryValue = event => {
+
+        const value = event.target.value;
+        props.setValues({...props.values, country: value});
+
+    };
+
     useEffect(() => {
         getCountries();
     }, []);
 
     return (
-        <select name='country'>
-            <option key={selectedCountry} defaultValue={selectedCountry}>{selectedCountry}</option>
+        <select name='country' onChange={setCountryValue}>
+            <option key={selectedCountry} value={selectedCountry}>{selectedCountry}</option>
             {countryList.map(c => {
-                if (c !== selectedCountry){
-                    return (<option key={c}>{c}</option>);
-                }
-                else {
-                    return;
-                }
+                
+                return (<option key={c} value={c}>{c}</option>);
+                
             })}
         </select>
     )
