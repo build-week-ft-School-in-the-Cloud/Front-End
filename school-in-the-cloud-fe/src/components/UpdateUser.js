@@ -1,99 +1,71 @@
 
 import React, {useState} from 'react';
+import { useParams, useHistory } from 'react-router-dom';
+import {axiosWithAuth} from '../utils/axiosWithAuth';
 
 
 const initialState = {
     username: '',
-    password: '',
-    forename: '',
-    surname: '',
-    country: '',
-    volunteerId:''
+    email: ''  
 }
 
 const UpdateUser = () => {
 
     const [updateUser, setUpdateUser] = useState(initialState);
     // console.log(`--->`, updateUser)
+    const {id} = useParams();
+    // console.log(`ID IN UPDATE USER`, id)
+    const {push} = useHistory();
+    
+
+
+     //Handle changes
+     const handleChanges = event => {
+        event.persist();
+        setUpdateUser({
+            ...updateUser,
+            [event.target.name]: event.target.value
+        })
+    }
 
 
 
-
-
-     updateUser = () => {
+    const updateClickedUser = (e) => {
+    e.preventDefault();
     axiosWithAuth()
-    .put("/students/profile/edit")
+    .put(`/api/users/${id}`, updateUser)
     .then(response => {
-        // console.log(`PUT REQUEST`, response)
+        console.log(`PUT REQUEST`, response)
+        push('/api/student/users')
     })
     .catch(err => console.log(`There was an error with PUT request`, err))
 }
     
     return (
-                <form>             
+                <form onSubmit={updateClickedUser}>             
 
                     <label htmlFor="username">Username: </label>
                     <input
                         type="text"
                         name="username"
                         placeholder="Username"
-                        value={credentials.username}
+                        value={updateUser.username}
                         onChange={handleChanges}
                     />
                     <br />
 
-                    <label htmlFor="password">Password: </label>
-                    <input
-                        type="password"
-                        name="password"
-                        placeholder="Enter password"
-                        value={credentials.password}
-                        onChange={handleChanges}
-                    />
-                    <br />
-
-                    <label htmlFor="forename">Forename: </label>
+                    <label htmlFor="email">Email: </label>
                     <input
                         type="text"
-                        name="forename"
-                        placeholder="Enter first name"
-                        value={credentials.forename}
+                        name="email"
+                        placeholder="Enter email"
+                        value={updateUser.email}
                         onChange={handleChanges}
-                    />
-                    <br />
+                    /> 
+                    <br/>
 
-                    <label htmlFor="surname">Surname: </label>
-                    <input
-                        type="text"
-                        name="surname"
-                        placeholder="Enter last name"
-                        value={credentials.surname}
-                        onChange={handleChanges}
-                    />
-                    <br />
 
-                    <label htmlFor="country">Country: </label>
-                    <input
-                        type="text"
-                        name="country"
-                        placeholder="Enter Country"
-                        value={credentials.country}
-                        onChange={handleChanges}
-                    />
-                    <br />
-
-                    <label htmlFor="id">Id: </label>
-                    <input
-                        type="text"
-                        name="volunteerId"
-                        placeholder="Enter id"
-                        value={credentials.volunteerId}
-                        onChange={handleChanges}
-                        
-                    />
-                    <br />
-
-                    <button>Update</button>
+                    <button>Edit</button>
                 </form>
             )
         }

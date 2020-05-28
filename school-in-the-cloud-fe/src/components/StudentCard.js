@@ -4,7 +4,7 @@ import React from 'react';
 import '../App.css';
 
 const StudentCard = (props) => {
-    console.log(`props --->`, props)
+    // console.log(`props --->`, props)
    
 
     return (

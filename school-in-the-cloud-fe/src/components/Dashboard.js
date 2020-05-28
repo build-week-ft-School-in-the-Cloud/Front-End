@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 import StudentCard from '../components/StudentCard';
-import {Link, useHistory} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 
 
 
@@ -15,7 +15,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     fetchUsers();
-    console.log(`-->`, users);
+    // console.log(`-->`, users);
   }, [])
    
     //Fetch list of current students

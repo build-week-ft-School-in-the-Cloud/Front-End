@@ -35,6 +35,11 @@ input {
   background-color: #e9f5f8;
   height:5%;
 }
+.bioText {
+  width: 35%;
+  min-height: 40vh;
+  resize:none;
+}
 
 @keyframes App-logo-spin {
   from {

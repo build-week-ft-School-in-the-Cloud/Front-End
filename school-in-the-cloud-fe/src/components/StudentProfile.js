@@ -11,12 +11,19 @@ const StudentProfile = (props) => {
     // console.log(`props --->`, props)
 
     const [user, setUser] = useState({});
+
+    const [bioState, setBioState] = useState({
+        bio: ''
+    });
+
+    
     const {push} = useHistory();
 
     const {id} = useParams();
     console.log(`id inside SP`, id);
 
     useEffect(() => {
+        // console.log(bioState);
         axiosWithAuth()
         .get(`/api/users/${id}`)
         .then(response => {
@@ -24,7 +31,7 @@ const StudentProfile = (props) => {
             setUser(response.data)
         })
         .catch(err => console.log(err.response))
-    }, [])
+    }, [id])
    
 
     const deleteProfile = () => {
@@ -39,13 +46,54 @@ const StudentProfile = (props) => {
         .catch(error => console.log(error.response))
     }
 
+    const updateUser = (id) => {
+        push(`/api/users/${id}`)
+     }
+
+     
+
+     const handleChange = (event) => {
+         setBioState({bioState: event.target.value})
+     }
+
+     const saveBio = (e) => {
+        setBioState()
+     }
+
+    
+
+
 
     return (
         <div className='studentProfile'>
             <p>Id:{user.id}</p>
             <p>Username:{user.username}</p>
-            <p>Email:{user.email}</p>
+            <p>Email:{user.email}</p>            
             <button onClick={deleteProfile}>Delete Profile</button>
+
+            <br/>
+
+            <button onClick={() =>updateUser(user.id)}>Update User</button>
+            <br/>
+
+
+
+            <label>Bio:</label><br/>
+            <textarea 
+                className="bioText" 
+                placeholder="Type here"
+                name='bio'
+                value={bioState.bio}
+                onChange={handleChange}
+            />
+
+                
+            <br/>
+            <button>Save Bio</button>
+
+            <pre>{bioState.bio}</pre>
+            
+            
         </div>
     )
 
