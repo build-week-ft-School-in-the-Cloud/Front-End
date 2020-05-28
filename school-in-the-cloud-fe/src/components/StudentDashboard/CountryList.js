@@ -1,5 +1,29 @@
 import React, {useState, useEffect} from 'react';
+import styled from 'styled-components';
 import axios from 'axios';
+
+// styled-components:
+const CountryOption = styled.option`
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+`;
+
+const CountrySelect = styled.select`
+    width: 60%;
+    width: 60vw;
+
+    padding: 0.5rem;
+    margin-top: 0.25rem;
+    
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 2rem;
+
+    border: 2px solid #50BDE4;
+    border-radius: 1rem;
+
+    color: darkBlue;
+`;
 
 // component that grabs a list of countries from an API and populates a dropdown
 // with them as well as whatever was in country state
@@ -27,14 +51,12 @@ const CountryList = props => {
         // get the full list of all countries from API
         axios.get('https://restcountries.eu/rest/v2/all')
             .then(response => {
-                console.log(response);
                 let tempCountryList = [];
                 response.data.forEach(c => {
                     tempCountryList.push(c.name);
                 });
                 tempCountryList.sort();
                 setCountryList(tempCountryList);
-                console.log(tempCountryList);
             })
             .catch(error => {
                 console.log(error);
@@ -57,14 +79,14 @@ const CountryList = props => {
 
     // return a dropdown of all countries with user's country selected by default
     return (
-        <select name='country' onChange={setCountryValue}>
-            <option key={selectedCountry} value={selectedCountry}>{selectedCountry}</option>
+        <CountrySelect name='country' onChange={setCountryValue}>
+            <CountryOption key={selectedCountry} value={selectedCountry}>{selectedCountry}</CountryOption>
             {countryList.map(c => {
                 
-                return (<option key={c} value={c}>{c}</option>);
+                return (<CountryOption key={c} value={c}>{c}</CountryOption>);
                 
             })}
-        </select>
+        </CountrySelect>
     )
 
 }
