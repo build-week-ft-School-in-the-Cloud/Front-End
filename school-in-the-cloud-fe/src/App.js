@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {BrowserRouter as Router} from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import './App.css';
 import StudentDashboard from './components/StudentDashboard/StudentDashboard';
 
 // Initialize some user data to work with due to back end issues

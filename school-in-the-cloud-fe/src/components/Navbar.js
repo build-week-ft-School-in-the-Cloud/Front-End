@@ -7,7 +7,9 @@ const NavbarContainer = styled.div`
     width: 100%;
 
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 
@@ -16,29 +18,54 @@ const NavbarContainer = styled.div`
 `;
 
 const NavbarNav = styled.nav`
-    margin-top: 2rem;
+    @media only screen and (max-width: 510px){
+
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    margin-top: 4rem;
     margin-bottom: 2rem;
 
-    a:visited {
-        color: #B9DEF0;
-    }
-
-    a:hover {
-        color: #DCEFFA;
-        background-color: #30ADE4;
-    }
+    font-family: 'Courgette', serif;
 
 `;
 
 const NavbarLink = styled(Link)`
+
     text-decoration: none;
 
     margin: 1rem;
     padding: 1rem 2rem 1rem 2rem;
 
-    font-size: 3rem;
+    @media only screen and (max-width: 510px){
+        padding-left: 25vw;
+        padding-right: 25vw;
+        text-align: center;
+    }
+
+    font-size: 2rem;
 
     border-radius: 1rem;
+    border: 2px solid #30ADE4;
+
+    :visited {
+        color: white;
+    }
+
+    :hover {
+        color: #DCEFFA;
+        background-color: #30ADE4;
+    }
+
+    :active {
+        color: darkBlue;
+    }
+
+    :focus {
+        outline: 0;
+    }
 `;
 
 // routing/links here, in the form of a navbar at page top, logout needs completed,

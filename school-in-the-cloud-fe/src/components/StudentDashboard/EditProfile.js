@@ -1,7 +1,103 @@
 import React, {useState, useEffect} from 'react';
+import styled from 'styled-components';
 import CountryList from './CountryList';
 import EditProfileSchema from './EditProfileSchema';
 import * as yup from 'yup';
+
+// styled-components
+const EditProfileText = styled.p`
+    margin-top: 1rem;
+
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+`;
+
+const EditProfileTitle = styled.h2`
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    padding: 2rem;
+
+    border-top-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+
+    font-family: 'Courgette', serif;
+    font-size: 3rem;
+    font-weight: bolder;
+    
+    @media only screen and (max-width: 510px){
+
+        font-size: 2rem;
+        margin-top: 2.5rem;
+        margin-bottom: 2.5rem;
+
+    }
+
+    text-align: center;
+    
+    color: white;
+    background-color: #50BDE4;
+
+    box-shadow: 3px 5px 0px darkBlue;
+`;
+
+const EditProfileTextInput = styled.input`
+    width: 100%;
+    border: 0px;
+    border-bottom: 2px solid #50BDE4;
+
+    padding-left: 1rem;
+
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 2rem;
+
+    color: darkBlue;
+`;
+
+const EditProfileSubmit = styled.button`
+    margin: 1rem;
+    padding: 1rem;
+
+    border: none;
+    border-radius: 1rem;
+    background-color: #50BDE4;
+    color: white;
+
+    font-family: 'Courgette', serif;
+    font-weight: bold;
+    font-size: 2rem;
+
+    box-shadow: 3px 5px 0px darkBlue;
+
+    :hover {
+
+        margin-top: 1.1rem;
+        padding-left: 1.1rem;
+        margin-bottom: 0.9rem;
+
+        color: #DCEFFA;
+        background-color: #30ADE4;
+
+        box-shadow: 2px 4px 0px darkBlue;
+    }
+
+    :active {
+        color: darkBlue;
+    }
+
+    :focus {
+        outline: 0;
+    }
+`;
+
+const ErrorText = styled.p`
+    color: darkBlue;
+
+    font-size: 1.5rem;
+    font-weight: normal;
+    font-style: italic;
+`;
 
 // init error messages with empty strings
 const initialErrors = {
@@ -71,20 +167,21 @@ const EditProfile = props => {
         <div className='edit-profile-container'>
             <form className='edit-profile-form' onSubmit={onSubmit}>
                 <div className='edit-profile-top'>
-                    <p className='edit-profile-username'>Username: </p>
-                    <input type='text' value={values.username} name='username' onChange={onInputChange} className='edit-profile-username-input' />
-                    <p className='edit-profile-first-name'>First Name: </p>
-                    <input type='text' value={values.forename} name='forename' onChange={onInputChange} className='edit-profile-first-name-input' />
-                    <p className='edit-profile-last-name'>Last Name: </p>
-                    <input type='text' value={values.surname} name='surname' onChange={onInputChange} className='edit-profile-last-name-input' />
-                    <p className='edit-profile-country'>Country: </p>
+                    <EditProfileTitle>Edit Profile</EditProfileTitle>
+                    <EditProfileText>Username: </EditProfileText>
+                    <EditProfileTextInput type='text' value={values.username} name='username' onChange={onInputChange} />
+                    <EditProfileText>First Name: </EditProfileText>
+                    <EditProfileTextInput type='text' value={values.forename} name='forename' onChange={onInputChange} />
+                    <EditProfileText>Last Name: </EditProfileText>
+                    <EditProfileTextInput type='text' value={values.surname} name='surname' onChange={onInputChange} />
+                    <EditProfileText>Country: </EditProfileText>
                     <CountryList country={values.country} setValues={setValues} values={values}/>
                 </div>
                 <div className='edit-profile-bottom'>
-                    <button className='student-dashboard-edit-submit' disabled={disabled}>Update Profile</button>
-                    <p className='edit-profile-error-text'>{errors.username}</p>
-                    <p className='edit-profile-error-text'>{errors.forename}</p>
-                    <p className='edit-profile-error-text'>{errors.surname}</p>
+                    <EditProfileSubmit className='student-dashboard-edit-submit' disabled={disabled}>Update Profile</EditProfileSubmit>
+                    <ErrorText className='edit-profile-error-text'>{errors.username}</ErrorText>
+                    <ErrorText className='edit-profile-error-text'>{errors.forename}</ErrorText>
+                    <ErrorText className='edit-profile-error-text'>{errors.surname}</ErrorText>
                 </div>
             </form>
         </div>
