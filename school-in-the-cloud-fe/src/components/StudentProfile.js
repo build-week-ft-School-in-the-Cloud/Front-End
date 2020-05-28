@@ -56,9 +56,7 @@ const StudentProfile = (props) => {
          setBioState({bioState: event.target.value})
      }
 
-     const saveBio = (e) => {
-        setBioState()
-     }
+     
 
     
 
