@@ -1,6 +1,8 @@
 import * as yup from 'yup';
 
-// Will be used to validate text inputs on EditProfile component
+// Used to validate form text inputs
+// Validation doesn't need to happen for country, due to choices being
+// constrained to a pre-populated dropdown list
 
 const EditProfileSchema = yup.object().shape({
     username: yup.string()

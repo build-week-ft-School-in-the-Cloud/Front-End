@@ -1,7 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-// routing/links here most likely, will come back to it when skeleton is complete, probably doesn't need props
+// routing/links here, in the form of a navbar at page top, logout needs completed,
+// home and edit route such that it operates as a toggle for the main dashboard
+// display
 const Navbar = props => {
 
     return (

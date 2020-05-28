@@ -1,18 +1,30 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
+// component that grabs a list of countries from an API and populates a dropdown
+// with them as well as whatever was in country state
 const CountryList = props => {
 
+    // this will populate our country list, init as empty array
     const [countryList, setCountryList] = useState([]);
 
+    // in case there was no country selected, display this message in dropdown.
+    // (I don't think we can technically get this to happen since everything should
+    // have a country by default, even if it's incorrect)
     let selectedCountry = 'Select Your Country';
 
-    if (props.country !== null || props.country !== undefined) {
-        selectedCountry = props.country;
+    if (props.values.country !== null || 
+        props.values.country !== undefined || 
+        props.values.country !== '') {
+        
+        // if there is a country value, use it as default
+        selectedCountry = props.values.country;
+    
     }
 
     const getCountries = () => {
 
+        // get the full list of all countries from API
         axios.get('https://restcountries.eu/rest/v2/all')
             .then(response => {
                 console.log(response);
@@ -30,6 +42,7 @@ const CountryList = props => {
 
     }
 
+    // onChange for dropdown that will set the country value
     const setCountryValue = event => {
 
         const value = event.target.value;
@@ -37,10 +50,12 @@ const CountryList = props => {
 
     };
 
+    // call API to get the countries in effect hook
     useEffect(() => {
         getCountries();
     }, []);
 
+    // return a dropdown of all countries with user's country selected by default
     return (
         <select name='country' onChange={setCountryValue}>
             <option key={selectedCountry} value={selectedCountry}>{selectedCountry}</option>

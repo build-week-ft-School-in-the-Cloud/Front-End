@@ -12,6 +12,7 @@ const initData = {
 
 function App() {
 
+  // Replace this with data from back end when connected properly
   const [username, setUsername] = useState(initData.username);
   const [forename, setForename] = useState(initData.forename);
   const [surname, setSurname] = useState(initData.surname);
