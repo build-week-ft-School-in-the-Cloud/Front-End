@@ -1,7 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import Navbar from './Navbar';
-import Footer from './Footer';
+import {Route, Switch} from 'react-router-dom';
 import EditProfile from './EditProfile';
 
 // studentDashboard gets its state from props and renders editProfile within it when
@@ -11,8 +9,6 @@ const StudentDashboard = props => {
     return (
 
         <div className='student-dashboard-container'>
-            <Router>
-                <Navbar />
                 <Switch>
                     <Route exact path='/'>
                         <p className='student-dashboard-username'>Username: {props.username}</p>
@@ -30,8 +26,6 @@ const StudentDashboard = props => {
                                      setCountry={props.setCountry}/>
                     </Route>
                 </Switch>
-                <Footer />
-            </Router>
         </div>
 
     )

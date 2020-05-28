@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
+import {BrowserRouter as Router} from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import './App.css';
-import StudentDashboard from './components/StudentDashboard';
+import StudentDashboard from './components/StudentDashboard/StudentDashboard';
 
 // Initialize some user data to work with due to back end issues
 const initData = {
@@ -21,14 +24,18 @@ function App() {
   return (
 
     <div className="app-container">
-      <StudentDashboard username={username} 
-                        forename={forename} 
-                        surname={surname} 
-                        country={country} 
-                        setUsername={setUsername}
-                        setForename={setForename}
-                        setSurname={setSurname}
-                        setCountry={setCountry}/>
+      <Router>
+        <Navbar />
+        <StudentDashboard username={username} 
+                          forename={forename} 
+                          surname={surname} 
+                          country={country} 
+                          setUsername={setUsername}
+                          setForename={setForename}
+                          setSurname={setSurname}
+                          setCountry={setCountry}/>
+        <Footer />
+      </Router>
     </div>
 
   );
