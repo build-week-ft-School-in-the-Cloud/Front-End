@@ -178,10 +178,10 @@ const EditProfile = props => {
                     <CountryList country={values.country} setValues={setValues} values={values}/>
                 </div>
                 <div className='edit-profile-bottom'>
-                    <EditProfileSubmit className='student-dashboard-edit-submit' disabled={disabled}>Update Profile</EditProfileSubmit>
-                    <ErrorText className='edit-profile-error-text'>{errors.username}</ErrorText>
-                    <ErrorText className='edit-profile-error-text'>{errors.forename}</ErrorText>
-                    <ErrorText className='edit-profile-error-text'>{errors.surname}</ErrorText>
+                    <EditProfileSubmit disabled={disabled}>Update Profile</EditProfileSubmit>
+                    <ErrorText>{errors.username}</ErrorText>
+                    <ErrorText>{errors.forename}</ErrorText>
+                    <ErrorText>{errors.surname}</ErrorText>
                 </div>
             </form>
         </div>
