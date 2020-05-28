@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import StudentDashboard from './components/StudentDashboard';
+
+// Initialize some user data to work with due to back end issues
+const initData = {
+  username: 'danb',
+  forename: 'Dan',
+  surname: 'Brioli',
+  country: 'United States of America'
+}
 
 function App() {
+
+  // Replace this with data from back end when connected properly
+  const [username, setUsername] = useState(initData.username);
+  const [forename, setForename] = useState(initData.forename);
+  const [surname, setSurname] = useState(initData.surname);
+  const [country, setCountry] = useState(initData.country);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <div className="app-container">
+      <StudentDashboard username={username} 
+                        forename={forename} 
+                        surname={surname} 
+                        country={country} 
+                        setUsername={setUsername}
+                        setForename={setForename}
+                        setSurname={setSurname}
+                        setCountry={setCountry}/>
     </div>
+
   );
+
 }
 
 export default App;
