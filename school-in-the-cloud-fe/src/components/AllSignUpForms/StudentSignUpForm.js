@@ -10,7 +10,8 @@ const initialState = {
         password: '',
         forename: '',
         surname: '',
-        country: ''
+        country: '',
+        volunteerId:''
     }
 }
 
@@ -102,6 +103,17 @@ const StudentSignUpForm = () => {
                     placeholder="Enter Country"
                     value={credentials.country}
                     onChange={handleChanges}
+                />
+                <br />
+
+                <label htmlFor="id">Id: </label>
+                <input
+                    type="text"
+                    name="volunteerId"
+                    placeholder="Enter id"
+                    value={credentials.volunteerId}
+                    onChange={handleChanges}
+                    
                 />
                 <br />
 

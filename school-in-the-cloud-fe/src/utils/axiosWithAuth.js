@@ -7,7 +7,8 @@ export const axiosWithAuth = () => {
         headers: {
             Authorization: token
         },
-
-        baseURL: 'https://school-in-the-cloud-keyeric.herokuapp.com'
+        baseURL: 'https://random-trinkets.herokuapp.com'
+        
+        // baseURL: 'https://school-in-the-cloud-keyeric.herokuapp.com'
     })
 }

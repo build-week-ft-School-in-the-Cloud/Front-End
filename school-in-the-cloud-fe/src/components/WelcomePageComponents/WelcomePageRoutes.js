@@ -15,11 +15,8 @@ function WelcomePageRoutes() {
     const history = useHistory();
 
     //ONCHANGE option
-    const takeMeToLogin = (e) => {
-        console.log(`e.target.value`, e.target.value);
-        if (e.target.value !== '') {
-            history.push(`/api/${e.target.value}/login`);
-        }
+    const takeMeToLogin = () => {
+        history.push(`/api/auth/login`);       
     }
 
     const takeMeToRegister = (e) => {

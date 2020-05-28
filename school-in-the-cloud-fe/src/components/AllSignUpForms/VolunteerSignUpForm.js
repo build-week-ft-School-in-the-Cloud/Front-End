@@ -38,7 +38,7 @@ const VolunteertSignUpForm = () => {
             .post('/api/volunter/register', credentials)
             .then(response => {
                 console.log(`response`, response)
-                // history.push('/api/volunteer/login')
+                history.push('/api/volunteer/login')
             })
             .catch(error => console.log(`There was an error`, error))
     }

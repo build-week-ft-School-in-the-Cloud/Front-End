@@ -31,7 +31,7 @@ const StudentLoginForm = () => {
     const login = (e) => {
         e.preventDefault();
         axiosWithAuth()
-            .post('/api/student/login', credentials)
+            .post('/api/auth/login', credentials)
             .then(response => {
                 console.log(`response`, response)
                 localStorage.setItem('token', response.data.token)
@@ -74,7 +74,8 @@ const StudentLoginForm = () => {
                     value={credentials.password}
                     onChange={handleChanges}
                 />
-                <br />
+                <br />               
+
                 <button>Log in</button>
             </form>
 

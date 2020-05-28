@@ -9,6 +9,8 @@ import AdminSignUpForm from '../AllSignUpForms/AdminSignUpForm';
 import StudentSignUpForm from '../AllSignUpForms/StudentSignUpForm';
 import VolunteerSignUpForm from '../AllSignUpForms/VolunteerSignUpForm';
 
+import StudentProfile from '../../components/StudentProfile';
+
 import {Route} from 'react-router-dom';
 import WelcomePageRoutes from '../WelcomePageComponents/WelcomePageRoutes';
 
@@ -20,13 +22,17 @@ function WelcomePage() {
         <section> 
             <Route exact path="/" component={WelcomePageRoutes}/>      
             <Route exact path='/api/admin/login' component={AdminLoginForm}/>  
-            <Route exact path='/api/student/login' component={StudentLoginForm}/>  
+            <Route exact path='/api/auth/login' component={StudentLoginForm}/>  
             <Route exact path='/api/volunteer/login' component={VolunteerLoginForm}/> 
 
 
             <Route exact path='/api/admin/register' component={AdminSignUpForm}/>  
             <Route exact path='/api/student/register' component={StudentSignUpForm}/> 
-            <Route exact path='/api/volunteer/register' component={VolunteerSignUpForm}/>                  
+            <Route exact path='/api/volunteer/register' component={VolunteerSignUpForm}/> 
+
+            <Route exact path='/student-profile/:id' component={StudentProfile} /> 
+
+                           
         </section>
       
     );
