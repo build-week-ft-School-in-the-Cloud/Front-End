@@ -10,7 +10,7 @@ import StudentSignUpForm from '../AllSignUpForms/StudentSignUpForm';
 import VolunteerSignUpForm from '../AllSignUpForms/VolunteerSignUpForm';
 
 import StudentProfile from '../../components/StudentProfile';
-
+import './StyleComponents.css';
 import {Route} from 'react-router-dom';
 import WelcomePageRoutes from '../WelcomePageComponents/WelcomePageRoutes';
 
@@ -19,7 +19,7 @@ import WelcomePageRoutes from '../WelcomePageComponents/WelcomePageRoutes';
 
 function WelcomePage() {   
     return (     
-        <section> 
+        <section className='welcomePage'> 
             <Route exact path="/" component={WelcomePageRoutes}/>      
             <Route exact path='/api/admin/login' component={AdminLoginForm}/>  
             <Route exact path='/api/auth/login' component={StudentLoginForm}/>  

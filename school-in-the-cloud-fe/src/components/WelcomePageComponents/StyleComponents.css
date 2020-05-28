@@ -1,0 +1,28 @@
+.welcomePage {  
+    background-color:white;     
+    
+}
+
+.registerSelect {
+    margin-bottom:5%;
+    width:15%;
+}
+
+.studentCard {
+    background-color: #e9f5f8;
+    width:25%;
+    margin: 0 auto;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-top:0%;
+}
+
+.studentProfile {
+    background-color: #e9f5f8;
+    width:50%;
+    min-height:75vh;
+    margin: 0 auto;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-top:2%;
+}

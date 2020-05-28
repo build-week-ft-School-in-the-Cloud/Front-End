@@ -36,8 +36,7 @@ const AdminLoginForm = () => {
             .then(response => {
                 console.log(`response`, response)
                 localStorage.setItem('token', response.data.token)
-                history.push('/api/admin/users')
-                
+                history.push('/api/admin/users')                
             })
 
             .catch(error => {

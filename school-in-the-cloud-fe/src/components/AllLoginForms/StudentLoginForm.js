@@ -48,7 +48,7 @@ const StudentLoginForm = () => {
 
 
     return (
-        <section>
+        <section className='studentWelcomePage'>
             <Link to="/">Go Back</Link>
             
             <header>
@@ -57,7 +57,7 @@ const StudentLoginForm = () => {
             </header>
 
             <form onSubmit={login}>
-                <label htmlFor="username">Username: </label>
+                <label htmlFor="username">Username:</label>
                 <input
                     type="text"
                     name="username"

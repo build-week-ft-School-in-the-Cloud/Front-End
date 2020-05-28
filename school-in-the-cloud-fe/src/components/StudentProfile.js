@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
+import '../App.css';
 
 
 
@@ -40,7 +41,7 @@ const StudentProfile = (props) => {
 
 
     return (
-        <div>
+        <div className='studentProfile'>
             <p>Id:{user.id}</p>
             <p>Username:{user.username}</p>
             <p>Email:{user.email}</p>

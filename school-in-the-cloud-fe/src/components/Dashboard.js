@@ -2,11 +2,6 @@ import React, {useEffect, useState} from 'react';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 import StudentCard from '../components/StudentCard';
 import {Link, useHistory} from 'react-router-dom';
-import StudentProfile from '../components/StudentProfile';
-
-// const initialState={
-//     users=[]
-// }
 
 
 

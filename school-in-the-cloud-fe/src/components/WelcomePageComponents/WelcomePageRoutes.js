@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import './StyleComponents.css';
 
 const initialState = {
     selectOption: {
@@ -31,9 +32,9 @@ function WelcomePageRoutes() {
     return (
         <section className="Navbar-Intro">
             <div>                
-                <h2>Welcome to the School in the Cloud!</h2>
+                <h2 className='welcomeHeader'>Welcome to the School in the Cloud!</h2>
                 <p>Already have an account? Select one of the following to log in.</p>
-                <select onChange={takeMeToLogin}>
+                <select className="registerSelect" onChange={takeMeToLogin}>
                     <option value=''>Select</option>
                     <option value={selectOption.student}>Student</option>
                     <option value={selectOption.volunteer}>Volunteer</option>
@@ -47,7 +48,7 @@ function WelcomePageRoutes() {
             <div>
                 <h2>Don't have an account and need to register?</h2>
                 <p>Select one to register</p>
-                <select onChange={takeMeToRegister}>
+                <select className="registerSelect" onChange={takeMeToRegister}>
                     <option value=''>Select</option>
                     <option value={selectOption.student}>Student</option>
                     <option value={selectOption.volunteer}>Volunteer</option>
