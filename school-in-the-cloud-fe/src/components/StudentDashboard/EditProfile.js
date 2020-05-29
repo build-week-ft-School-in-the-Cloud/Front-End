@@ -4,6 +4,8 @@ import CountryList from './CountryList';
 import EditProfileSchema from './EditProfileSchema';
 import * as yup from 'yup';
 
+import '../../App.css';
+
 // styled-components
 const EditProfileText = styled.p`
     margin-top: 1rem;
@@ -108,6 +110,8 @@ const initialErrors = {
 
 const EditProfile = props => {
 
+
+
     // init state, errors are empty, form values are grabbed from login state,
     // disabled is true initially but will likely be set to false since
     // the form expects the values to be valid when passed to it and checks that
@@ -118,6 +122,8 @@ const EditProfile = props => {
                                           surname: props.surname,
                                           country: props.country});
     const [disabled, setDisabled] = useState(true);
+
+   
 
     // validate text field inputs
     const onInputChange = event => {
@@ -161,6 +167,9 @@ const EditProfile = props => {
             });
     
     }, [values]);
+
+
+    
 
     return (
 

@@ -70,7 +70,8 @@ const StudentDashboard = props => {
                         <StudentDashboardText>Name: {props.forename + ' ' + props.surname}</StudentDashboardText>
                         <StudentDashboardText>Country: {props.country}</StudentDashboardText>
                     </Route>
-                    <Route path='/edit'>
+                    
+                    <Route exact path="/">
                         <EditProfile username={props.username} 
                                      forename={props.forename} 
                                      surname={props.surname} 

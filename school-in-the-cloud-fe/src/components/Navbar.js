@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
+
 // styled components:
 const NavbarContainer = styled.div`
     width: 100%;
@@ -78,8 +79,8 @@ const Navbar = props => {
         <NavbarContainer>
             <NavbarNav>
                 <NavbarLink to='/'>Home</NavbarLink>
-                <NavbarLink to='/edit'>Edit Profile</NavbarLink>
-                <NavbarLink to='#'>Log Out</NavbarLink> {/* figure out where this goes to when merged */}
+                <NavbarLink to='/api/auth/login'>Login</NavbarLink>
+                <NavbarLink to='/'>Log Out</NavbarLink> {/* figure out where this goes to when merged */}
             </NavbarNav>
         </NavbarContainer>
 

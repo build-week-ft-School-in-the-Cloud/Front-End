@@ -1,0 +1,42 @@
+.welcomePage {  
+    background-color:white;     
+    
+}
+
+.registerSelect {
+    margin-bottom:5%;
+    width:30%;
+}
+
+.studentCard {
+    background-color: #e9f5f8;
+    width:25%;
+    margin: 0 auto;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-top:0%;
+}
+
+.studentProfile {
+    background-color: #e9f5f8;
+    width:50%;
+    min-height:75vh;
+    margin: 0 auto;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-top:2%;
+}
+
+.Navbar-Intro {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.welcomeHeader {
+    font-size:20px;
+}
+
+.matchFonts{
+    font-size:15px;
+}
