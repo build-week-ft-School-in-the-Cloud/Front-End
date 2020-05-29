@@ -47,7 +47,7 @@ const StudentSignUpForm = () => {
     }
 
     return (
-        <section>  
+        <section className="registrationWrapper">  
             <Link to="/">Go Back</Link>        
 
             <header>
@@ -117,7 +117,7 @@ const StudentSignUpForm = () => {
                 />
                 <br />
 
-                <button>Register</button>
+                <button className="genericButton">Register</button>
             </form>
         </section>
     )

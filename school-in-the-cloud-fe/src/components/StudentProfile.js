@@ -54,26 +54,24 @@ const StudentProfile = (props) => {
 
      const handleChange = (event) => {
          setBioState({bioState: event.target.value})
-     }
-
-     const saveBio = (e) => {
-        setBioState()
-     }
+     }  
 
     
-
-
 
     return (
         <div className='studentProfile'>
             <p>Id:{user.id}</p>
             <p>Username:{user.username}</p>
             <p>Email:{user.email}</p>            
-            <button onClick={deleteProfile}>Delete Profile</button>
+            <button
+                 className="genericButton"
+                 onClick={deleteProfile}>Delete Profile</button>
 
             <br/>
 
-            <button onClick={() =>updateUser(user.id)}>Update User</button>
+            <button
+                className="genericButton"
+                onClick={() =>updateUser(user.id)}>Update User</button>
             <br/>
 
 
@@ -89,9 +87,9 @@ const StudentProfile = (props) => {
 
                 
             <br/>
-            <button>Save Bio</button>
+            <button className="genericButton">Save Bio</button>
 
-            <pre>{bioState.bio}</pre>
+            
             
             
         </div>

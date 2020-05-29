@@ -30,10 +30,14 @@ function WelcomePageRoutes() {
 
 
     return (
-        <section className="Navbar-Intro">
-            <div>                
-                <h2 className='welcomeHeader'>Welcome to the School in the Cloud!</h2>
-                <p>Already have an account? Select one of the following to log in.</p>
+        <>
+        <h1 className="mainHeader">Welcome to the School in the Cloud!</h1> 
+        
+        <section className="Navbar-Intro">             
+            <div>   
+                           
+                <h2 className='welcomeHeader'>Already have an account?</h2>
+                <p className="matchFonts">Select one of the following to log in.</p>
                 <select className="registerSelect" onChange={takeMeToLogin}>
                     <option value=''>Select</option>
                     <option value={selectOption.student}>Student</option>
@@ -46,8 +50,8 @@ function WelcomePageRoutes() {
 
 
             <div>
-                <h2>Don't have an account and need to register?</h2>
-                <p>Select one to register</p>
+                <h2 className='welcomeHeader'>Don't have an account and need to register?</h2>
+                <p className="matchFonts">Select one to register</p>
                 <select className="registerSelect" onChange={takeMeToRegister}>
                     <option value=''>Select</option>
                     <option value={selectOption.student}>Student</option>
@@ -58,6 +62,8 @@ function WelcomePageRoutes() {
             </div>
 
         </section>
+
+        </>
 
     );
 }

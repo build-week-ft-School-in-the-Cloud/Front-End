@@ -5,7 +5,7 @@
 
 .registerSelect {
     margin-bottom:5%;
-    width:15%;
+    width:30%;
 }
 
 .studentCard {
@@ -25,4 +25,18 @@
     border: 1px solid black;
     border-radius: 5px;
     margin-top:2%;
+}
+
+.Navbar-Intro {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.welcomeHeader {
+    font-size:20px;
+}
+
+.matchFonts{
+    font-size:15px;
 }

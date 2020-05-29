@@ -8,11 +8,16 @@ const StudentCard = (props) => {
    
 
     return (
-        <div className="studentCard">
-            <p>Id:{props.student.id}</p>
-            <p>Username:{props.student.username}</p>
-            <p>Email:{props.student.email}</p>
-        </div>  
+               
+        <section className="studentCardContainer">
+            
+                <div className="studentCard">
+                    <p>Id:{props.student.id}</p>
+                    <p>Username:{props.student.username}</p>
+                    <p>Email:{props.student.email}</p>
+                </div>  
+        </section>
+        
     )
 
 }

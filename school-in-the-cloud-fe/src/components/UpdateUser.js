@@ -65,7 +65,7 @@ const UpdateUser = () => {
                     <br/>
 
 
-                    <button>Edit</button>
+                    <button className="genericButton">Edit</button>
                 </form>
             )
         }

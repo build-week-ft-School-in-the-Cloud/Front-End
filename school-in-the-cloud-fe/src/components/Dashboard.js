@@ -50,7 +50,9 @@ const Dashboard = () => {
                             key={student.id}
                             student={student}
                         />  
-                        <button onClick={() => viewStudentProfile(student.id)}>See Student</button>  
+                        <button 
+                            className="genericButton"
+                            onClick={() => viewStudentProfile(student.id)}>See Student</button>  
                         </>                  
                          
                     )

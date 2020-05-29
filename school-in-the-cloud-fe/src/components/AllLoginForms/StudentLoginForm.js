@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import { axiosWithAuth } from '../../utils/axiosWithAuth';
 import LoginErrorMessage from '../LoginErrorMessage';
+import '../../App.css';
 
 const initialState = {
     username: '',
@@ -48,40 +49,42 @@ const StudentLoginForm = () => {
 
 
     return (
-        <section className='studentWelcomePage'>
-            <Link to="/">Go Back</Link>
-            
-            <header>
-                <h2>Welcome to Student Login Page</h2>
-                <h3>Log in</h3>
-            </header>
+        <section className='loginWrapper'>
+            <section className='studentWelcomePage'>
+                <Link to="/">Go Back</Link>
+                
+                <header>
+                    <h2>Welcome to Student Login Page</h2>
+                    <h3>Log in</h3>
+                </header>
 
-            <form onSubmit={login}>
-                <label htmlFor="username">Username:</label>
-                <input
-                    type="text"
-                    name="username"
-                    placeholder="Enter Username"
-                    value={credentials.username}
-                    onChange={handleChanges}
-                />
-                <br />
-                <label htmlFor="password">Password: </label>
-                <input
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    value={credentials.password}
-                    onChange={handleChanges}
-                />
-                <br />               
+                <form onSubmit={login}>
+                    <label htmlFor="username">Username:</label>
+                    <input
+                        type="text"
+                        name="username"
+                        placeholder="Enter Username"
+                        value={credentials.username}
+                        onChange={handleChanges}
+                    />
+                    <br />
+                    <label htmlFor="password">Password: </label>
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        value={credentials.password}
+                        onChange={handleChanges}
+                    />
+                    <br />               
 
-                <button>Log in</button>
-            </form>
+                    <button className="genericButton">Log in</button>
+                </form>
 
-            <div>
-                {message === "error" ? <LoginErrorMessage /> : null}
-            </div>
+                <div>
+                    {message === "error" ? <LoginErrorMessage /> : null}
+                </div>
+            </section>
         </section>
     )
 
